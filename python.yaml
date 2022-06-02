@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deployment-devops
+spec:
+  selector:
+    matchLabels:
+      app: python_app
+  template:
+    metadata:
+      labels:
+        app: python_app
+    spec:
+      containers:
+      - name: python-container-devops
+        image: poroko/flask-demo-app
+        ports:
+        - containerPort: 5000

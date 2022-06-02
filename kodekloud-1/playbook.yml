@@ -1,0 +1,21 @@
+- name: Extract archive
+
+  hosts: stapp01, stapp02, stapp03
+
+  become: true
+
+  tasks:
+
+    - name: Extract the archive and set the owner/permissions
+
+      unarchive:
+
+        src: /usr/src/sysops/nautilus.zip
+
+        dest: /opt/sysops/
+
+        owner: "{{ ansible_user }}"
+
+        group: "{{ ansible_user }}"
+
+        mode: "0744"

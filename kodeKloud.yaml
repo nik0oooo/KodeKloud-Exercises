@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment-datacenter
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: httpd-deployment-datacenter
+  template:
+    metadata:
+      labels:
+        app: httpd-deployment-datacenter
+    spec:
+      containers:
+      - name: httpd-deployment-datacenter-container
+        image: httpd:latest
